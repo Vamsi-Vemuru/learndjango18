@@ -4,4 +4,8 @@ from django.shortcuts import render
 
 def home(request):
 	template = 'home.html'
-	return render(request, template, {})
+	title = "My Title %s" % (request.user)
+	context = {
+		"template_title" : title,
+	}
+	return render(request, template, context)
